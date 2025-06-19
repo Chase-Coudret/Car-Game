@@ -34,38 +34,6 @@ Car_rect = Car_image.get_rect()
 Car_image2 = pygame.transform.scale(Car_image2, (80,120))
 
 
-
-#Traffic Class 
-class traffic:
-    def __init__(self, location,colour, y,):
-        self.location = location
-        self.colour = colour
-        self.y = y
-
-    #Traffic PNG loading
-    def draw(self):
-        pygame.draw.rect(screen, self.colour, [self.location, self.y, 80,120])
-        screen.blit(Car_image2, (self.location, self.y))
-        
-      
-    #Traffic Movement
-    def move(self):
-        self.y += 14
-
-    #Traffic off screen respawning 
-    def off_screen(self):
-        if self.y >= 700:
-            self.location = random.randint(10,70)
-            self.y = -200
-
-        
-   
-car_1 = traffic(10, grey, -200)
-    
-car_list = [car_1]
-        
-
-      
       
 
 
@@ -164,10 +132,7 @@ def game_loop():
         screen.blit(Backround_image, (0, 0))
         screen.blit(Car_image, (Car_x, Car_y))
 
-        for items in car_list:
-            items.draw()
-            items.move()
-            items.off_screen()
+   
             
 
 
